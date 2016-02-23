@@ -18,8 +18,8 @@ var _pdfPath = "", _outputPath = "", inputpdfDisplay, outputHtmlDisplay;
 
 function initWithOpenFin(){
     // Your OpenFin specific code to go here...
-    document.querySelector('#launch-no-args').addEventListener('click', launchExtWithNoAruments);
-    document.querySelector('#launch-with-args').addEventListener('click', launchExtWithAruments);
+    document.querySelector('#launch-no-args').addEventListener('click', launchExtWithNoArguments);
+    document.querySelector('#launch-with-args').addEventListener('click', launchExtWithArguments);
     document.querySelector('#path').addEventListener('change', onPathChanged);
     inputpdfDisplay = document.querySelector("#input-pdf");
     outputHtmlDisplay = document.querySelector("#output-html");
@@ -33,11 +33,12 @@ function onPathChanged(evt){
 
     var _pathString = String(evt.target.value);
     //Wrap the arguments in double quotes - particularly if you have spaces in them.
+    // Escape all backslashes with double backslashes
     _pdfPath = '"'+_pathString.split("\\").join("\\\\")+'"';
     // get rid of the name of the pdf file on the output string
     var _trimmedOutput = _pathString.split("\\");
     var pdfName = _trimmedOutput.pop();
-    //.. and add the output file nam you require
+    //...and add the output file name you require
     _trimmedOutput.push("html_output");
     // Join back into a single string to pass as an argument
     _outputPath = '"'+String(_trimmedOutput.join("\\\\"))+'"';
@@ -47,19 +48,19 @@ function onPathChanged(evt){
 }
 
 /* When 'fin.desktop.System.launchExternalProcess' is called,
-if no arguments are passed then the arguments
-(if any) are taken from the 'app.json' file, from the  'args' parameter
+if no arguments are passed then the arguments (if any)
+are taken from the 'app.json' file, from the  'args' parameter
 of the 'appAssets' Object with the relevant 'alias'.
 See the 'app.json' file.
  */
-function launchExtWithNoAruments(){
+function launchExtWithNoArguments(){
     fin.desktop.System.launchExternalProcess({
         alias: 'pdftohtml-alias',
         listener: function(event){
             // react to close event
             if(event.topic === "exited" && event.exitCode === MY_KNOWN_BAD_STATE) {
                 // your desired logic here
-                console.log("Excited External Process");
+                console.log("Exited External Process");
             }else{
                 console.log("Running External Process");
             }
@@ -72,7 +73,7 @@ If 'arguments' is passed as a parameter it takes precedence
 over any 'args' set in the 'app.json'.
  */
 
-function launchExtWithAruments(){
+function launchExtWithArguments(){
     fin.desktop.System.launchExternalProcess({
         alias: 'pdftohtml-alias',
         arguments: _pdfPath+" "+_outputPath,
@@ -80,7 +81,7 @@ function launchExtWithAruments(){
             // react to close event
             if(event.topic === "exited" && event.exitCode === MY_KNOWN_BAD_STATE) {
                 // your desired logic here
-                console.log("Excited External Process");
+                console.log("Exited External Process");
             }else{
                 console.log("Running External Process");
             }
