@@ -13,7 +13,7 @@ function init(){
     }
 };
 
-var _pdfPath = "", _outputPath = "", inputpdfDisplay, outputHtmlDisplay
+var _pdfPath = "", _outputPath = "", inputpdfDisplay, outputHtmlDisplay;
 
 
 function initWithOpenFin(){
@@ -32,21 +32,25 @@ function initNoOpenFin(){
 function onPathChanged(evt){
 
     var _pathString = String(evt.target.value);
+    //Wrap the arguments in double quotes - particularly if you have spaces in them.
     _pdfPath = '"'+_pathString.split("\\").join("\\\\")+'"';
-    // get rid of the name if the pdf file
+    // get rid of the name of the pdf file on the output string
     var _trimmedOutput = _pathString.split("\\");
     var pdfName = _trimmedOutput.pop();
+    //.. and add the output file nam you require
     _trimmedOutput.push("html_output");
+    // Join back into a single string to pass as an argument
     _outputPath = '"'+String(_trimmedOutput.join("\\\\"))+'"';
-
+// Display results
     inputpdfDisplay.innerHTML = _pdfPath;
     outputHtmlDisplay.innerHTML = _outputPath;
 }
 
 /* When 'fin.desktop.System.launchExternalProcess' is called,
 if no arguments are passed then the arguments
-(if any) are taken from the 'args' parameter
+(if any) are taken from the 'app.json' file, from the  'args' parameter
 of the 'appAssets' Object with the relevant 'alias'.
+See the 'app.json' file.
  */
 function launchExtWithNoAruments(){
     fin.desktop.System.launchExternalProcess({
@@ -64,7 +68,8 @@ function launchExtWithNoAruments(){
 }
 
 /*
-If 'arguments' is passed as a parameter they take precedence over any 'args' set in the 'app.json'.
+If 'arguments' is passed as a parameter it takes precedence
+over any 'args' set in the 'app.json'.
  */
 
 function launchExtWithAruments(){

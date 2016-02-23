@@ -3,7 +3,11 @@ In this example we will launch an executable called 'pdftohtml.exe', a command-l
 
 The 'pdftohtml.exe' file is stored in a .zip fle in the 'assets' directory. All assets must be zipped - they will be unzipped on installation of the OpenFin app. The app will be installed at C:\Users\[USER_NAME]\AppData\Local\OpenFin\apps\[ID_NUMBER]. This is the default directory to all OpenFin apps.
 
+dist.zip contains the zipped contents of 'assets-source' - but not the 'assets-source' directory itself. It may contain multiple files.
 
+The 'alias' for the process is set in the 'app.json'. the JavaScript has been annotated, please refer to it for more detail.
+
+--
 This is a vanilla JavaScript app, free from frameworks and build systems.
  
 It has a simple Node/Express server for local development.
