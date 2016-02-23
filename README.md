@@ -1,7 +1,7 @@
 # OpenFin How To: Launch an External Process
 In this example we will launch an executable called 'pdftohtml.exe', a command-line tool which, as its name suggest, coverts a pdf to html. It requires you pass it at least two arguments - a pdf file to convert and an output path for the converted files. It is an OpenSource tool which may be found here [http://pdftohtml.sourceforge.net/](http://pdftohtml.sourceforge.net/).
 
-The 'pdftohtml.exe' file is stored in a .zip fle in the 'assets' directory. All assets must be zipped - they will be unzipped on installation of the OpenFin app.
+The 'pdftohtml.exe' file is stored in a .zip fle in the 'assets' directory. All assets must be zipped - they will be unzipped on installation of the OpenFin app. The app will be installed at C:\Users\[USER_NAME]\AppData\Local\OpenFin\apps\. This is the default directory to dtor all OpenFin apps - 
 
 
 

@@ -22,14 +22,7 @@
       "alias": "pdftohtml-alias",
       "target": "pdftohtml.exe",
       "version": "0.0.1",
-      "args" : "-i -l hyperblotter.xlsx"
-    },
-    {
-      "src": "http://cdn.openfin.co/demos/hyperblotter/assets/HyperblotterChart.zip",
-      "__src": "http://localhost:5001/assets/HyperblotterChart.zip",
-      "alias": "hyperblotter-chart",
-      "target": "HyperblotterChart.exe",
-      "version": "1.0.0"
+      "args" : "C:\\Users\\grahamclapham\\Documents\\pdf_convert\\eikon.pdf C:\\Users\\grahamclapham\\Documents\\pdf_convert\\output_html"
     }
-  ],
+  ]
 }
