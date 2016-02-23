@@ -1,4 +1,13 @@
-# OpenFin How To: Hello World
+# OpenFin How To: Launch an External Process
+In this example we will launch an executable called 'pdftohtml.exe', a command-line tool which, as its name suggest, coverts a pdf to html. It requires you pass it at least two arguments - a pdf file to convert and an output path for the converted files. It is an OpenSource tool which may be found here [http://pdftohtml.sourceforge.net/](http://pdftohtml.sourceforge.net/).
+
+The 'pdftohtml.exe' file is stored in a .zip fle in the 'assets' directory. All assets must be zipped - they will be unzipped on installation of the OpenFin app.
+
+
+
+
+
+
 
 ### Prerequisits
 ####You will need:
@@ -185,4 +194,4 @@ This should start a simple Node server at [http://localhost:9070](http://localho
 
 If you wish to change to localhost port you will need to change the references in "server.js", "app.json" and in the installer link below.
 
-[installer](https://dl.openfin.co/services/download?fileName=openfin_appseed&config=http://localhost:9070/app.json)
+[installer](https://dl.openfin.co/services/download?fileName=openfin_demo_externalprocess&config=http://localhost:9966/app.json)
