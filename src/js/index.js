@@ -71,6 +71,8 @@ function launchExtWithNoArguments(){
 /*
 If 'arguments' is passed as a parameter it takes precedence
 over any 'args' set in the 'app.json'.
+In the function below we pass the two variables, '_pdfPath' and  '_outputPath'
+created in the 'onPathChanged' function, fired when the path string is changed in the input field.
  */
 
 function launchExtWithArguments(){
